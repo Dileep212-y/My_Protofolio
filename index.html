@@ -1,281 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boddu Dileep - Portfolio</title>
-    <!-- Google Fonts: Roboto with fallback -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Boddu Dileep — AI/ML Developer portfolio">
+<title>Boddu Dileep | AI/ML Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Boddu Dileep</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="noise"></div>
 
-    <!-- Home Section -->
-    <section id="home" class="section bg-light text-center fade-in">
-        <div class="container py-5">
-            <img src="profile-photo.jpg" alt="Boddu Dileep" class="profile-img rounded-circle mb-3">
-            <h1 class="display-4">Boddu Dileep</h1>
-            <p class="lead">Proficient in Programming languages, with a strong focus on delivering efficient and scalable solutions.</p>
-            <a href="resume.pdf" class="btn btn-primary btn-lg" download>Download Resume</a>
-        </div>
-    </section>
+<header>
+<nav class="nav container">
+<a class="brand" href="#home">BD</a>
+<div class="nav-links" id="navLinks">
+<a class="active" href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="nav-actions">
+<a href="https://github.com/Dileep212-y" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="mailto:dileepboddu0685@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+<button id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+<button id="menuToggle" class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+</div>
+</nav>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="section fade-in">
-        <div class="container">
-            <h2 class="text-center mb-4">About Me</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Personal Skills</h5>
-                    <ul>
-                        <li>Strong analytical and problem-solving skills.</li>
-                        <li>Efficient in managing tasks with a positive attitude.</li>
-                        <li>Quick learner with an aptitude for new technologies.</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h5>Strengths</h5>
-                    <ul>
-                        <li>Problem-Solving Skills</li>
-                        <li>Time Management</li>
-                        <li>Adaptability</li>
-                        <li>Communication Skills</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <h5>Personal Profile</h5>
-                    <p>
-                        Name: Boddu Dileep<br>
-                        Father's Name: B. Ramu<br>
-                        Date of Birth: 12-07-2001<br>
-                        Nationality: Indian<br>
-                        Languages Known: English, Telugu, Hindi<br>
-                        Hobbies: Playing Cricket, Reading Books<br>
-                        Address: Dr no.8-57-60/1, Adarsh Nagar, Tagarapuvalasa, Visakhapatnam, 531163
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<main>
+<section class="hero" id="home">
+<div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+<div class="container hero-grid">
+<div class="hero-visual reveal">
+<span class="vertical-label">AI / ML<br>DEVELOPER</span>
+<div class="portrait-wrap">
+<div class="portrait-bg"></div>
+<img src="profile-photo.jpg" alt="Boddu Dileep" class="profile-photo">
+<div class="portrait-ring"></div>
+</div>
+<div class="availability"><span></span>OPEN TO<br>OPPORTUNITIES</div>
+<div class="hero-number">01</div>
+</div>
 
-    <!-- Education Section -->
-    <section id="education" class="section bg-light fade-in">
-        <div class="container">
-            <h2 class="text-center mb-4">Educational Qualifications</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>S No</th>
-                            <th>Studies</th>
-                            <th>Year</th>
-                            <th>Board/University</th>
-                            <th>Institution</th>
-                            <th>Grade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>BCA in Data Science</td>
-                            <td>2025</td>
-                            <td>Andhra University</td>
-                            <td>Gayatri Vidya Parishad college</td>
-                            <td>8.81/10 CGPA</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>SSC (12th Grade)</td>
-                            <td>2019</td>
-                            <td>Board of Intermediate Education</td>
-                            <td>Sri Vasavi Junior College</td>
-                            <td>9.18/10 CGPA</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>CBSE (10th Standard)</td>
-                            <td>2017</td>
-                            <td>CBSE</td>
-                            <td>Vijayam School</td>
-                            <td>10/10 CGPA</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section fade-in">
-        <div class="container">
-            <h2 class="text-center mb-4">Technical Skills</h2>
-            <div class="row text-center">
-                <div class="col-md-4 skill-item">
-                    <i class="fas fa-code fa-3x mb-3 text-primary"></i>
-                    <h5>Web Development</h5>
-                    <p>HTML, CSS, JavaScript</p>
-                </div>
-                <div class="col-md-4 skill-item">
-                    <i class="fas fa-laptop-code fa-3x mb-3 text-primary"></i>
-                    <h5>Programming</h5>
-                    <p>Python, Java, C, R</p>
-                </div>
-                <div class="col-md-4 skill-item">
-                    <i class="fas fa-database fa-3x mb-3 text-primary"></i>
-                    <h5>Database</h5>
-                    <p>MySQL</p>
-                </div>
-                <div class="col-md-4 skill-item">
-                    <i class="fas fa-book fa-3x mb-3 text-primary"></i>
-                    <h5>Libraries</h5>
-                    <p>NumPy, Pandas</p>
-                </div>
-                <div class="col-md-4 skill-item">
-                    <i class="fas fa-cloud fa-3x mb-3 text-primary"></i>
-                    <h5>Technologies</h5>
-                    <p>Tableau, MS Excel, SPSS, Big Data, Cloud Computing, Deep Learning</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
-    <!-- Projects Section -->
-<section id="projects" class="section bg-light fade-in">
-    <div class="container">
-        <h2 class="text-center mb-4">Key Projects</h2>
-        <div class="row">
-
-            <!-- AQI Project -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 shadow hover-scale">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Air Quality Index Prediction using Machine Learning [2025]
-                        </h5>
-
-                        <ul>
-                            <li>Built machine learning models to predict Air Quality Index (AQI) using PM2.5, PM10, SO2, NO2, O3 and NH3 as pollutant features.</li>
-                            <li>Implemented and compared XGBoost and Random Forest regression models.</li>
-                            <li>XGBoost achieved an R² score of 0.81, while Random Forest achieved an RMSE of 14.</li>
-                            <li>Performed data preprocessing, model training, testing, evaluation and visualization using Python, Pandas, NumPy, Matplotlib and Seaborn.</li>
-                            <li>Developed a PyQt5-based application for entering pollutant values and obtaining AQI predictions.</li>
-                        </ul>
-
-                        <a href="https://github.com/Dileep212-y/AQI-Prediction-Application"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-primary mt-2">
-                            <i class="fab fa-github me-2"></i>View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Image Caption Generator -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 shadow hover-scale">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Image Caption Generator using Deep Learning [2025]
-                        </h5>
-
-                        <ul>
-                            <li>Developed an AI/ML application that automatically generates natural-language captions for input images.</li>
-                            <li>Used ResNet for visual feature extraction and a GRU-based sequence model for caption generation.</li>
-                            <li>Implemented image preprocessing, feature extraction and caption generation using deep learning techniques.</li>
-                            <li>Prepared and tested the model using image datasets and a dedicated testing dataset.</li>
-                            <li>Developed a Python application interface for generating captions from input images.</li>
-                        </ul>
-
-                        <a href="https://github.com/Dileep212-y/image-caption-generator"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-primary mt-2">
-                            <i class="fab fa-github me-2"></i>View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<div class="hero-copy reveal">
+<p class="eyebrow"><i></i> BODDU DILEEP / PORTFOLIO</p>
+<h1>Turning data<br>into <em>intelligent</em><br>solutions.</h1>
+<p class="hero-description">AI/ML developer focused on building practical, data-driven applications with Python, machine learning and deep learning.</p>
+<div class="hero-actions">
+<a href="resume.pdf" class="button" download>Resume <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a href="#projects" class="text-link">Explore work <span>↗</span></a>
+</div>
+<div class="hero-meta">
+<div><strong>2025</strong><span>BCA · Data Science</span></div>
+<div><strong>02+</strong><span>AI/ML projects</span></div>
+<div><strong>01</strong><span>Curious mind</span></div>
+</div>
+</div>
+</div>
+<div class="scroll-cue">SCROLL TO EXPLORE <i class="fa-solid fa-arrow-down"></i></div>
 </section>
 
-    <!-- Leadership Section -->
-    <section id="leadership" class="section fade-in">
-        <div class="container">
-            <h2 class="text-center mb-4">Leadership Experience</h2>
-            <p>Student Mentor, Gayatri Vidya Parishad College, Visakhapatnam</p>
-            <ul>
-                <li>Lead "Clean Swachh Bharat" workshop for 200 students on sustainability.</li>
-                <li>Co-ordinated a yoga event for 500 participants, promoting well-being.</li>
-            </ul>
-        </div>
-    </section>
+<section class="statement">
+<div class="container statement-inner"><span class="index">02 / 06</span><p>I build <strong>intelligent products</strong> where data, code and useful ideas meet.</p></div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-light fade-in">
-        <div class="container">
-            <h2 class="text-center mb-4">Contact Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <ul class="list-unstyled text-center mb-4">
-                        <li><i class="fas fa-phone-alt me-2"></i> 6302294262 </li>
-                        <li><i class="fas fa-envelope me-2"></i> dileepboddu0685@gmail.com</li>
-                    </ul>
-                    <form action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="about">
+<div class="container">
+<div class="section-heading reveal"><span class="index">03 / 06</span><div><p class="eyebrow">A LITTLE ABOUT ME</p><h2>Curious by nature.<br><em>Practical by design.</em></h2></div></div>
+<div class="about-grid">
+<div class="about-lead reveal">
+<p>I am Boddu Dileep, a BCA Data Science graduate with a strong interest in artificial intelligence, machine learning and building useful software applications.</p>
+<p>I enjoy learning new technologies, breaking down problems and turning ideas into working solutions. My approach combines analytical thinking, adaptability and continuous improvement.</p>
+</div>
+<div class="details reveal">
+<div><span>EDUCATION</span><strong>BCA in Data Science<br>Andhra University · 2025</strong></div>
+<div><span>LANGUAGES</span><strong>English · Telugu · Hindi</strong></div>
+<div><span>STRENGTHS</span><strong>Problem solving · Adaptability · Communication</strong></div>
+<div><span>BASED IN</span><strong>Visakhapatnam, India</strong></div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Boddu Dileep. All rights reserved.</p>
-    </footer>
+<section class="section skills-section" id="skills">
+<div class="container">
+<div class="section-heading compact reveal"><span class="index">04 / 06</span><div><p class="eyebrow">TOOLKIT</p><h2>Things I work with.</h2></div></div>
+<div class="skills-grid">
+<article class="skill reveal"><b>01</b><i class="fa-solid fa-brain"></i><h3>AI / ML</h3><span>Machine Learning · Deep Learning</span></article>
+<article class="skill reveal"><b>02</b><i class="fa-brands fa-python"></i><h3>Programming</h3><span>Python · Java · C · R</span></article>
+<article class="skill reveal"><b>03</b><i class="fa-solid fa-chart-line"></i><h3>Data</h3><span>NumPy · Pandas · MySQL</span></article>
+<article class="skill reveal"><b>04</b><i class="fa-solid fa-code"></i><h3>Web</h3><span>HTML · CSS · JavaScript</span></article>
+<article class="skill reveal"><b>05</b><i class="fa-solid fa-cloud"></i><h3>Tools</h3><span>Tableau · Excel · SPSS · Cloud</span></article>
+</div>
+</div>
+</section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+<section class="section" id="projects">
+<div class="container">
+<div class="section-heading reveal"><span class="index">05 / 06</span><div><p class="eyebrow">SELECTED WORK</p><h2>Projects with a<br><em>purpose.</em></h2></div></div>
+<div class="projects">
+<article class="project reveal">
+<div class="project-no">01</div>
+<div class="project-main">
+<div class="project-top"><span>2025 · MACHINE LEARNING</span><span>PYTHON</span></div>
+<h3>Air Quality Index<br>Prediction</h3>
+<p>A machine learning application that predicts AQI from PM2.5, PM10, SO2, NO2, O3 and NH3. XGBoost and Random Forest models were compared, followed by a PyQt5 prediction interface.</p>
+<div class="tags"><span>XGBoost</span><span>Random Forest</span><span>Pandas</span><span>PyQt5</span></div>
+<a class="project-link" href="https://github.com/Dileep212-y/AQI-Prediction-Application" target="_blank" rel="noopener">View on GitHub ↗</a>
+</div><div class="project-art"><b>AQI</b></div>
+</article>
+
+<article class="project reveal">
+<div class="project-no">02</div>
+<div class="project-main">
+<div class="project-top"><span>2025 · DEEP LEARNING</span><span>COMPUTER VISION</span></div>
+<h3>Image Caption<br>Generator</h3>
+<p>A deep learning application that generates natural-language captions for input images using ResNet for visual feature extraction and a GRU-based sequence model for caption generation.</p>
+<div class="tags"><span>ResNet</span><span>GRU</span><span>Deep Learning</span><span>Python</span></div>
+<a class="project-link" href="https://github.com/Dileep212-y/image-caption-generator" target="_blank" rel="noopener">View on GitHub ↗</a>
+</div><div class="project-art"><b>AI</b></div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section timeline-section">
+<div class="container two-col">
+<div class="reveal">
+<span class="index">06 / 06</span><p class="eyebrow">EDUCATION</p><h2>Learning that<br><em>keeps moving.</em></h2>
+<div class="timeline">
+<div><span>2025</span><section><h3>BCA in Data Science</h3><p>Gayatri Vidya Parishad College<br>Andhra University · 8.81 / 10 CGPA</p></section></div>
+<div><span>2019</span><section><h3>Intermediate</h3><p>Sri Vasavi Junior College · 9.18 / 10 CGPA</p></section></div>
+<div><span>2017</span><section><h3>CBSE · 10th Standard</h3><p>Vijayam School · 10 / 10 CGPA</p></section></div>
+</div>
+</div>
+<div class="leadership reveal">
+<p class="eyebrow">LEADERSHIP</p><strong>MENTOR</strong><h3>Student Mentor</h3><p>Gayatri Vidya Parishad College, Visakhapatnam</p>
+<ul><li>Led a Clean Swachh Bharat workshop for 200 students.</li><li>Co-ordinated a yoga event for 500 participants.</li></ul>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container contact-inner reveal">
+<p class="eyebrow">LET'S BUILD SOMETHING</p>
+<h2>Have an idea?<br><em>Let's talk.</em></h2>
+<a class="email" href="mailto:dileepboddu0685@gmail.com">dileepboddu0685@gmail.com ↗</a>
+<div class="contact-bottom"><a href="https://github.com/Dileep212-y" target="_blank" rel="noopener">GitHub ↗</a><a href="mailto:dileepboddu0685@gmail.com">Email ↗</a><a href="tel:+916302294262">+91 63022 94262</a></div>
+</div>
+</section>
+</main>
+
+<footer><div class="container"><span>© 2026 Boddu Dileep</span><span>Designed & built with curiosity.</span></div></footer>
+<script src="script.js"></script>
 </body>
 </html>
