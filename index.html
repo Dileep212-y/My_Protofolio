@@ -1,246 +1,240 @@
 <!doctype html>
-<html lang="en" class="is-booting">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DILEEP — AI / ML Developer · Data Science · Agentic AI</title>
-<meta name="description" content="Welcome to my world. Portfolio of Dileep — artist, creative, storyteller.">
-<meta name="theme-color" content="#000000">
-
-<link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/oswald-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./src/styles/app.css">
-<link rel="stylesheet" href="./src/styles/universe.css">
-<link rel="stylesheet" href="./src/styles/chrono.css">
-<link rel="stylesheet" href="./src/styles/projects.css">
-<link rel="stylesheet" href="./src/styles/finale.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08070b">
+  <meta name="description" content="Dileep Boddu — AI/ML Developer, Data Science and Agentic AI portfolio.">
+  <title>Dileep Boddu — AI/ML Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="emergency" style="position:fixed;inset:0;z-index:9999;background:#050505;color:#f2f0ea;display:grid;place-items:center;font-family:Arial,sans-serif;text-align:center"><div><div style="font-size:clamp(64px,12vw,180px);font-weight:800;letter-spacing:-.06em">DILEEP</div><div style="margin-top:18px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.65">AI / ML · Data Science · Agentic AI</div><div id="emergencyStatus" style="margin-top:28px;font-size:11px;letter-spacing:.18em;opacity:.4">INITIALIZING CINEMATIC EXPERIENCE</div></div></div>
+  <div class="loader" aria-hidden="true"><div class="loader__bar"></div><span>DILEEP BODDU / PORTFOLIO</span></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<!-- the real heading, for search engines and screen readers; the visible
-     wordmark is drawn on the canvas so video can be clipped inside its letters -->
-<h1 class="sr-only">DILEEP — AI / ML Developer, Data Scientist, Agentic AI. Welcome to my world.</h1>
-
-<div class="stage-wrap">
-  <canvas id="stage" aria-hidden="true"></canvas>
-
-  <!-- ------------------------------------------------------------------ -->
-  <header class="hdr" id="hdr">
-    <svg class="hdr__rule" id="hdrRule" aria-hidden="true" preserveAspectRatio="none">
-      <polyline id="hdrRulePath" fill="none" stroke="currentColor" stroke-width="1.25"
-                vector-effect="non-scaling-stroke"/>
-    </svg>
-
-    <a class="hdr__mark" href="./" aria-label="Dileep, home">
-      <span class="mark-word">DILEEP</span>
-    </a>
-
-    <span class="hdr__div" aria-hidden="true"></span>
-
-    <p class="hdr__roles">
-      <span>AI / ML</span><span>Data Science</span><span>Agentic AI</span>
-    </p>
-
-    <nav class="hdr__nav" aria-label="Primary">
-      <ul>
-        <li><a href="#" class="is-active" data-nav>Home</a></li>
-        <li><a href="#" data-nav>Work</a></li>
-        <li><a href="#" data-nav>About</a></li>
-        <li><a href="#" data-nav>Projects</a></li>
-        <li><a href="#" data-nav>Contact</a></li>
-      </ul>
+  <header class="nav">
+    <a class="logo" href="#home" aria-label="Dileep Boddu home"><span>DB</span><i>/</i></a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a class="is-active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-    <div class="hdr__meta">
-      <span class="hdr__metaLabel">Portfolio — MMXXVI</span>
-      <span class="hdr__pips" aria-hidden="true"><i></i><i></i><i></i></span>
-    </div>
-
-    <button class="hdr__burger" id="burger" aria-expanded="false" aria-controls="hdrNavMobile">
-      <span aria-hidden="true"></span><span aria-hidden="true"></span>
-      <span class="sr-only">Menu</span>
-    </button>
+    <a class="nav__availability" href="#contact"><span></span> Available for opportunities</a>
+    <button class="menu" aria-label="Open menu"><span></span><span></span></button>
   </header>
 
-  <!-- ------------------------------------------------------------------ -->
-  <div class="furniture" aria-hidden="true">
-    <p class="welcome" id="welcome">
-      <b class="welcome__dots">•••</b>
-      <span class="welcome__text">Welcome to my world</span>
-      <b class="welcome__dots">•••</b>
-    </p>
-
-    <p class="chip chip--artist" id="chipArtist"><span>•AI / ML Developer Dileep•</span></p>
-    <p class="chip chip--legend" id="chipLegend"><span>•Agentic AI•</span></p>
-
-    <div class="arrows arrows--l" id="arrowsL"></div>
-    <div class="arrows arrows--r" id="arrowsR"></div>
-    <!-- only the bottom-right grid remains: the top-left one sat under the
-         navigation and fought with it -->
-    <div class="grid-dots grid-dots--br" id="dotsBR"></div>
-  </div>
-
-  <!-- ------------------------------------------------------------------ -->
-  <nav class="menu" id="menu" aria-label="Primary, expanded" hidden>
-    <ul>
-      <li><a href="#" class="is-active" data-nav>Home</a></li>
-      <li><a href="#" data-nav>Work</a></li>
-      <li><a href="#" data-nav>About</a></li>
-      <li><a href="#" data-nav>Projects</a></li>
-      <li><a href="#" data-nav>Contact</a></li>
-    </ul>
-    <p class="menu__tag">••• Welcome to my world •••</p>
-  </nav>
-
-  <!-- ------------------------------------------------------------------ -->
-  <div class="boot" id="boot">
-    <div class="boot__bar"><i id="bootFill"></i></div>
-    <button class="boot__enter" id="bootEnter" hidden>
-      <span>Enter</span>
-    </button>
-  </div>
-
-  <noscript>
-    <div class="fallback">
-      <p>DILEEP</p>
-      <small>This opening is an animated experience. Please enable JavaScript.</small>
-    </div>
-  </noscript>
-</div>
-
-<main class="flow">
-  <!-- the hero above is position:fixed, so this reserves its scroll height -->
-  <div class="hero-spacer" aria-hidden="true"></div>
-
-  <!-- ==================================================================== -->
-  <!-- The creative-universe film itself, played as supplied. All labels and
-       cards are part of the footage; the DOM adds only what a screen reader
-       needs and a veil that breathes over the loop seam. -->
-  <section class="universe" id="universe" aria-labelledby="uniTitle">
-    <header class="universe__title" id="uniTitle">
-      <p class="universe__over">Scene 02</p>
-      <h2 class="universe__name">The AI<br>Universe</h2>
-      <p class="universe__sub">Models · Data · Agents · Impact</p>
-    </header>
-    <ul class="sr-only">
-      <li>Figma</li><li>Photoshop</li><li>After Effects</li><li>Premiere Pro</li>
-      <li>Lightroom</li><li>Notion</li><li>Framer</li><li>Webflow</li>
-      <li>Spline</li><li>Claude</li><li>ChatGPT</li><li>Midjourney</li>
-    </ul>
-    <video id="uniFilm" muted playsinline loop preload="metadata"
-           poster="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/media/universe.jpg" aria-hidden="true">
-      <source src="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/media/universe.mp4" type="video/mp4">
-    </video>
-    <div class="universe__veil" id="uniVeil" aria-hidden="true"></div>
-  </section>
-
-  <!-- ==================================================================== -->
-  <section class="chrono" id="chrono" aria-labelledby="chronoTitle">
-    <div class="chrono__pin">
-      <canvas id="chronoStage" aria-hidden="true"></canvas>
-
-      <h2 class="chrono__title" id="chronoTitle">
-        <span>A</span><span>Journey</span><span>Through</span><span>Time</span>
-      </h2>
-      <p class="chrono__rail" aria-hidden="true">
-        <i></i>
-        <span>Ideas</span><span>Experiences</span><span>People</span>
-        <span>Projects</span><span>Me</span>
-        <i></i>
-      </p>
-
-      <p class="chrono__hint" aria-hidden="true">
-        Move<br>to explore<br>the timeline<i></i>
-      </p>
-      <p class="chrono__note chrono__note--bl" aria-hidden="true">
-        Same<br>curiosity<br>a brighter<br>tomorrow
-      </p>
-      <p class="chrono__note chrono__note--br" aria-hidden="true">
-        Still<br>designing<br>what's<br>next<i></i>
-      </p>
-
-      <div class="chrono__deck" id="chronoDeck"></div>
-
-      <!-- the figure's own layer, stacked over the deck: he stands in front
-           of the timeline, looking at his journey -->
-      <canvas id="chronoFront" aria-hidden="true"></canvas>
-    </div>
-  </section>
-
-  <!-- ==================================================================== -->
-  <section class="gallery" id="gallery" aria-labelledby="galleryTitle">
-    <div class="gallery__pin">
-      <canvas id="galleryStage" aria-hidden="true"></canvas>
-
-      <div class="gallery__world">
-        <div class="gallery__deck" id="galleryDeck"></div>
-        <img class="gallery__person" id="galleryPerson"
-             src="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main//My_Protofolio/profile-photo.jpg" alt="" draggable="false">
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero__content reveal">
+        <p class="kicker"><span></span> AI / ML DEVELOPER · DATA SCIENCE · AGENTIC AI</p>
+        <h1>Building<br><em>intelligent</em><br>systems.</h1>
+        <p class="hero__lead">I turn data, machine learning and AI agents into practical products — from prediction models to complete interactive applications.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#projects">Explore my work <b>↗</b></a>
+          <a class="button button--ghost" href="#contact">Let's connect</a>
+        </div>
+        <div class="hero__meta">
+          <span><b>01</b> BCA · Data Science</span>
+          <span><b>02</b> CGPA 8.81 / 10</span>
+          <span><b>03</b> Visakhapatnam, India</span>
+        </div>
       </div>
 
-      <h2 class="g-label g-label--projects" id="galleryTitle">Projects</h2>
-      <p class="g-label g-label--ideas" aria-hidden="true">
-        Ideas<br>Interfaces<br>Experiences<br><b>Real Impact</b>
-      </p>
-      <p class="g-label g-label--scroll" aria-hidden="true">
-        Scroll<br>Explore<br>Interact
-      </p>
-      <p class="g-label g-label--real" aria-hidden="true">
-        Real<br>Projects<br>Real<br>Stories
-      </p>
-      <p class="g-label g-label--tomorrow" aria-hidden="true">
-        Designing<br>A Brighter<br>Tomorrow
-      </p>
-      <span class="g-label g-label--num" id="galleryNum" aria-hidden="true">01</span>
-    </div>
-  </section>
+      <div class="hero__visual reveal">
+        <div class="hero__grid"></div>
+        <div class="hero__halo"></div>
+        <div class="hero__photo">
+          <img src="profile-photo.jpg" alt="Dileep Boddu">
+          <div class="hero__photo-label"><span>01</span><b>AI / ML<br>DEVELOPER</b></div>
+        </div>
+        <div class="hero__signal signal--top"><small>MODEL STATUS</small><b><i></i> ONLINE</b></div>
+        <div class="hero__signal signal--bottom"><small>FOCUS</small><b>ML · AGENTS · PRODUCTS</b></div>
+        <div class="orbit orbit--one"></div>
+        <div class="orbit orbit--two"></div>
+        <div class="orbit-dot dot--one"></div>
+        <div class="orbit-dot dot--two"></div>
+      </div>
+      <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
+    </section>
 
-</main>
+    <section class="marquee" aria-label="Specializations">
+      <div>ARTIFICIAL INTELLIGENCE <i>✦</i> MACHINE LEARNING <i>✦</i> AGENTIC AI <i>✦</i> DEEP LEARNING <i>✦</i> DATA SCIENCE <i>✦</i> ARTIFICIAL INTELLIGENCE <i>✦</i></div>
+    </section>
 
-<!-- ====================================================================== -->
-<footer class="fin" id="fin" aria-label="Closing">
-  <div class="fin__pin">
-  <h2 class="sr-only">Dileep</h2>
+    <section id="about" class="about section">
+      <div class="section-label"><span>01</span><p>ABOUT</p></div>
+      <div class="about__layout">
+        <div class="about__intro reveal">
+          <p class="eyebrow">WHO I AM</p>
+          <h2>From <em>data</em><br>to decisions.</h2>
+        </div>
+        <div class="about__copy reveal">
+          <p class="large-copy">I'm Dileep Boddu, a BCA Data Science graduate focused on building machine learning applications, deep learning systems and Agentic AI workflows.</p>
+          <p>I enjoy the full path from data preparation and model training to APIs, interfaces and deployment. My projects are built to demonstrate how intelligence can become something people can actually use.</p>
+          <div class="about__facts">
+            <div><strong>03+</strong><span>Featured AI projects</span></div>
+            <div><strong>08.81</strong><span>BCA CGPA</span></div>
+            <div><strong>AI → UI</strong><span>End-to-end mindset</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="fin__stage1" id="finStage1">
-    <canvas id="finBack" aria-hidden="true"></canvas>
-    <canvas id="finMan" aria-hidden="true"></canvas>
+    <section id="projects" class="projects section">
+      <div class="section-label"><span>02</span><p>SELECTED WORK</p></div>
+      <div class="section-title reveal"><p class="eyebrow">PROJECTS</p><h2>Work with a purpose.</h2><p>Three projects across Agentic AI, machine learning and deep learning.</p></div>
 
-    <p class="f-cap f-cap--tl" aria-hidden="true">
-      Ideas<br>Designs<br>Experiences<br>Real Impact
-    </p>
-    <blockquote class="f-cap f-cap--quote">
-      &ldquo;Good<br>Code<br>Builds<br>Impact.&rdquo;
-    </blockquote>
-    <p class="f-cap f-cap--blw" aria-hidden="true">A<br>Designer&rsquo;s<br>World</p>
-    <p class="f-cap f-cap--tr" aria-hidden="true">
-      Same<br>Curiosity<br>A Smarter<br>Tomorrow
-    </p>
-    <p class="f-cap f-cap--br" aria-hidden="true">Learn<br>Build<br>Deploy<br>Repeat</p>
-  </div>
+      <article class="project project--feature reveal">
+        <div class="project__info">
+          <div class="project__number">01 / AGENTIC AI</div>
+          <h3>EcoDrive <span>AI</span></h3>
+          <p>Vehicle carbon footprinting, fuel prediction, driving analysis and route optimization connected through a multi-agent architecture.</p>
+          <div class="chips"><span>Google ADK</span><span>FastAPI</span><span>React</span><span>ML</span></div>
+          <a class="text-link" href="https://vehicle-carbon-agent.netlify.app" target="_blank" rel="noopener">Open live project <b>↗</b></a>
+        </div>
+        <div class="project__visual eco">
+          <div class="visual-head"><span>ECODRIVE AI</span><b><i></i> LIVE SYSTEM</b></div>
+          <div class="eco__main">
+            <div class="car-stage">
+              <div class="car-ring car-ring--a"></div><div class="car-ring car-ring--b"></div>
+              <div class="car"><span></span><i></i><b></b></div>
+              <small>VEHICLE INPUT</small>
+            </div>
+            <div class="telemetry">
+              <div><small>FUEL EFFICIENCY</small><strong>6.8</strong><em>L / 100 KM</em><div><i style="--p:68%"></i></div></div>
+              <div><small>CARBON IMPACT</small><strong>142</strong><em>G / KM</em><div><i style="--p:54%"></i></div></div>
+              <div><small>DRIVING SCORE</small><strong>87</strong><em>/ 100</em><div><i style="--p:87%"></i></div></div>
+            </div>
+          </div>
+          <div class="flow"><span>VEHICLE</span><b>→</b><span>ANALYZE</span><b>→</b><span>OPTIMIZE</span><b>→</b><span>IMPACT</span></div>
+        </div>
+      </article>
 
-  <div class="fin__dim" id="finDim" aria-hidden="true"></div>
+      <article class="project reveal">
+        <div class="project__info">
+          <div class="project__number">02 / MACHINE LEARNING</div>
+          <h3>Air Quality<br><span>Prediction</span></h3>
+          <p>Desktop ML application that uses pollutant and environmental features to predict AQI and compare Random Forest with XGBoost.</p>
+          <div class="chips"><span>XGBoost</span><span>Random Forest</span><span>Python</span><span>PyQt5</span></div>
+          <a class="text-link" href="https://github.com/Dileep212-y/AQI-Prediction-Application" target="_blank" rel="noopener">View source <b>↗</b></a>
+        </div>
+        <div class="project__visual aqi">
+          <div class="visual-head"><span>AQI MODEL MONITOR</span><b>LIVE DATA</b></div>
+          <div class="aqi__body">
+            <div class="aqi__score"><div class="arc"></div><small>AQI</small><strong>187</strong><span>UNHEALTHY</span></div>
+            <div class="pollutants">
+              <div><label>PM2.5</label><b>74</b><i><span style="--p:78%"></span></i></div>
+              <div><label>PM10</label><b>112</b><i><span style="--p:68%"></span></i></div>
+              <div><label>NO₂</label><b>48</b><i><span style="--p:44%"></span></i></div>
+              <div><label>O₃</label><b>31</b><i><span style="--p:30%"></span></i></div>
+              <div><label>CO</label><b>0.8</b><i><span style="--p:22%"></span></i></div>
+            </div>
+            <div class="mini-chart">
+              <svg viewBox="0 0 600 150" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 110 C45 96 62 100 90 72 S135 112 175 78 S235 100 270 53 S325 88 355 61 S405 96 440 43 S500 78 540 32 S575 51 600 25"></path>
+                <path class="chart-alt" d="M0 119 C50 105 67 102 92 83 S140 111 177 86 S235 94 272 64 S326 82 356 69 S407 89 442 54 S500 70 540 44 S576 57 600 35"></path>
+              </svg>
+              <div><span>ACTUAL</span><span>PREDICTED</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <!-- the second frame of the finale: slides in from the left on scroll.
-       Dormant until its image exists (see boot6's candidate list). -->
-  <figure class="fin__frame2" id="finFrame2" aria-hidden="true" hidden>
-    <img id="finFrame2Img" alt="" draggable="false" decoding="async">
-  </figure>
+      <article class="project reveal">
+        <div class="project__info">
+          <div class="project__number">03 / DEEP LEARNING</div>
+          <h3>Image Caption<br><span>Generator</span></h3>
+          <p>CNN + LSTM image captioning system using VGG16 visual features and Flickr8k captions to translate images into natural language.</p>
+          <div class="chips"><span>VGG16</span><span>CNN</span><span>LSTM</span><span>Flickr8k</span></div>
+          <a class="text-link" href="https://github.com/Dileep212-y/Image-Caption-Generator" target="_blank" rel="noopener">View source <b>↗</b></a>
+        </div>
+        <div class="project__visual vision">
+          <div class="visual-head"><span>VISION → LANGUAGE</span><b>INFERENCE</b></div>
+          <div class="vision__body">
+            <div class="scene">
+              <div class="scene__sun"></div><div class="scene__mountain scene__mountain--one"></div><div class="scene__mountain scene__mountain--two"></div><div class="scene__person"></div>
+              <small>INPUT IMAGE</small>
+            </div>
+            <div class="pipeline">
+              <div><b>VGG16</b><small>FEATURES</small></div><i>→</i><div><b>LSTM</b><small>SEQUENCE</small></div><i>→</i><div><b>TEXT</b><small>CAPTION</small></div>
+            </div>
+            <div class="caption-result"><small>GENERATED CAPTION</small><p>A person standing near a scenic mountain landscape.</p><div><span>A</span><span>person</span><span>standing</span><span>near</span><span>...</span></div></div>
+          </div>
+        </div>
+      </article>
+    </section>
 
-  <div class="fin__bar">
-    <a href="#" data-nav>Contact</a>
-    <nav class="fin__soc" aria-label="Social">
-      <a href="https://github.com/Dileep212-y" rel="me">GitHub</a>
-      <a href="https://www.linkedin.com/" rel="me">LinkedIn</a>
-      <a href="#" rel="me">LinkedIn</a>
-    </nav>
-    <small class="fin__c">&copy; 2026 Dileep &mdash; All rights reserved</small>
-  </div>
-  </div>
-</footer>
+    <section class="systems section">
+      <div class="section-label"><span>03</span><p>SYSTEMS LAB</p></div>
+      <div class="systems__header reveal"><div><p class="eyebrow">BEHIND THE PROJECTS</p><h2>Intelligence<br><em>in motion.</em></h2></div><p>Architecture, data flow and model signals — represented as interactive visual systems.</p></div>
+      <div class="systems__grid">
+        <div class="system-card system-card--large reveal">
+          <div class="system-card__top"><span>AGENT ORCHESTRATION</span><b>ECODRIVE</b></div>
+          <div class="agent-map">
+            <svg viewBox="0 0 700 360" preserveAspectRatio="none"><path d="M90 180 C180 40 270 40 350 180 S520 320 610 180"></path><path d="M350 180 C300 100 200 100 90 180"></path><path d="M350 180 C410 90 520 100 610 180"></path></svg>
+            <span class="agent-node node-a">VEHICLE</span><span class="agent-node node-b">DRIVING</span><span class="agent-node node-c">FUEL</span><span class="agent-node node-d">ROUTE</span><span class="agent-node node-e">CARBON</span>
+            <div class="agent-core"><b>AI</b><small>ORCHESTRATOR</small></div>
+          </div>
+        </div>
+        <div class="system-card reveal">
+          <div class="system-card__top"><span>MODEL SIGNALS</span><b>AQI</b></div>
+          <div class="signal-chart"><div class="signal-grid"></div><div class="bars"><i style="--h:42%"></i><i style="--h:68%"></i><i style="--h:54%"></i><i style="--h:86%"></i><i style="--h:61%"></i><i style="--h:76%"></i><i style="--h:49%"></i><i style="--h:72%"></i></div><div class="signal-pulse"></div></div>
+          <div class="system-caption">POLLUTANT → AQI</div>
+        </div>
+        <div class="system-card reveal">
+          <div class="system-card__top"><span>MODEL SNAPSHOT</span><b>METRICS</b></div>
+          <div class="metrics">
+            <div><small>AQI</small><strong>R² 0.81</strong><span>Prediction</span></div>
+            <div><small>AQI</small><strong>RMSE 14</strong><span>Regression</span></div>
+            <div><small>CAPTION</small><strong>0.64</strong><span>BLEU score</span></div>
+            <div><small>ECODRIVE</small><strong>ML + ADK</strong><span>Agentic AI</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script type="module" src="./src/main.js"></script>
+    <section id="skills" class="skills section">
+      <div class="section-label"><span>04</span><p>SKILLS</p></div>
+      <div class="skills__layout">
+        <div class="reveal"><p class="eyebrow">TECHNICAL STACK</p><h2>Tools that<br><em>ship.</em></h2></div>
+        <div class="skill-groups reveal">
+          <div><small>AI / ML</small><p>Python · Scikit-learn · XGBoost · TensorFlow · Keras · Pandas · NumPy · Statsmodels</p></div>
+          <div><small>AGENTIC AI</small><p>Google ADK · Multi-agent workflows · Tool orchestration · AI systems</p></div>
+          <div><small>APPLICATIONS</small><p>React · JavaScript · FastAPI · Node.js · MySQL · REST APIs</p></div>
+          <div><small>TOOLS</small><p>Git · GitHub · VS Code · Jupyter · Google Colab</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume section">
+      <div class="resume-card reveal">
+        <div><p class="eyebrow">RESUME</p><h2>Let's take the<br>next step.</h2><p>BCA Data Science graduate focused on AI/ML, Agentic AI and end-to-end application development.</p></div>
+        <a class="button button--primary" href="resume.pdf" target="_blank" rel="noopener">View / download resume <b>↗</b></a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section">
+      <div class="section-label"><span>05</span><p>CONTACT</p></div>
+      <div class="contact__content reveal">
+        <p class="eyebrow">HAVE A ROLE, PROJECT OR IDEA?</p>
+        <h2>Let's build<br><em>something useful.</em></h2>
+        <a class="contact__email" href="mailto:dileepboddu0685@gmail.com">dileepboddu0685@gmail.com <b>↗</b></a>
+      </div>
+      <div class="contact__footer">
+        <a href="https://github.com/Dileep212-y" target="_blank" rel="noopener">GitHub ↗</a>
+        <span>+91 63022 94262</span>
+        <span>Visakhapatnam, India</span>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 Dileep Boddu</span><span>AI / ML · DATA SCIENCE · AGENTIC AI</span><a href="#home">Back to top ↑</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
