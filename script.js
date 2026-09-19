@@ -4,6 +4,7 @@ const nav=[...document.querySelectorAll(".header nav a")];
 const sections=[...document.querySelectorAll("section[id]")];
 const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
 const lerp=(a,b,t)=>a+(b-a)*t;
+const focusLabels=["AGENTIC SYSTEMS","PREDICTIVE MODELS","VISION + LANGUAGE"];
 
 function update(){
  const vh=innerHeight;
@@ -37,6 +38,8 @@ function update(){
    });
    projects.querySelector(".project-progress i").style.width=(25+p*70)+"px";
    projects.querySelector(".project-progress span:first-of-type").textContent=p<.33?"01":p<.66?"02":"03";
+   const focus=projects.querySelector(".project-focus strong");
+   if(focus) focus.textContent=focusLabels[Math.min(2,Math.floor(p*3))];
  }
  const about=document.querySelector(".about");
  if(about){
@@ -70,6 +73,16 @@ sections.forEach(s=>io.observe(s));
 
 const burger=document.querySelector(".burger");
 burger?.addEventListener("click",()=>document.body.classList.toggle("menu-open"));
+document.querySelectorAll(".mobile-menu a").forEach(a=>a.addEventListener("click",()=>document.body.classList.remove("menu-open")));
+const glow=document.querySelector(".cursor-glow");
+if(glow && !reduce && matchMedia("(pointer:fine)").matches){
+ addEventListener("pointermove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";glow.style.opacity="1"},{passive:true});
+ document.addEventListener("mouseleave",()=>glow.style.opacity="0");
+}
+document.querySelectorAll(".magnetic").forEach(el=>{
+ el.addEventListener("pointermove",e=>{if(reduce)return;const r=el.getBoundingClientRect();const x=(e.clientX-(r.left+r.width/2))*.12;const y=(e.clientY-(r.top+r.height/2))*.12;el.style.transform=`translate(${x}px,${y}px)`});
+ el.addEventListener("pointerleave",()=>el.style.transform="");
+});
 
 if(!reduce){
  document.querySelectorAll(".p-card").forEach(card=>{
