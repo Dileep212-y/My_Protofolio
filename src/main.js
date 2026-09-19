@@ -54,15 +54,7 @@ async function main() {
 
   if (!app.stage.ok) return degrade('WebGL unavailable');
 
-  let manifest;
-  try {
-    manifest = await Promise.race([
-      fetch(`${MEDIA}manifest.json`).then((r) => r.json()),
-      new Promise((_, reject) => setTimeout(() => reject(new Error('media manifest timeout')), 7000)),
-    ]);
-  } catch {
-    return degrade('media manifest missing');
-  }
+  // External reference media is optional. The cinematic composition must never\n  // become a blank page just because a third-party asset is slow or unavailable.\n  let manifest = null;\n  try {\n    manifest = await Promise.race([\n      fetch(`${MEDIA}manifest.json`).then((r) => {\n        if (!r.ok) throw new Error(`manifest HTTP ${r.status}`);\n        return r.json();\n      }),\n      new Promise((_, reject) => setTimeout(() => reject(new Error('media manifest timeout')), 2500)),\n    ]);\n  } catch (e) {\n    console.warn('[dileep] optional hero manifest unavailable:', e.message);\n  }
 
   const steps = 4;
   let done = 0;
@@ -89,22 +81,11 @@ async function main() {
       w: c.w, h: c.h, track: c.track, loopFade,
     });
   };
-  app.clips.hero = mk('hero', 0.7);
-
-  layout();
+  if (manifest?.clips?.hero) {\n    try {\n      app.clips.hero = mk('hero', 0.7);\n    } catch (e) {\n      console.warn('[dileep] hero clip unavailable:', e.message);\n      app.clips.hero = null;\n    }\n  }\n\n  layout();
   window.addEventListener('resize', debounce(layout, 140));
   window.addEventListener('orientationchange', () => setTimeout(layout, 220));
 
-  await Promise.race([
-    app.clips.hero.whenReady(),
-    new Promise((_, reject) => setTimeout(() => reject(new Error('hero media timeout')), 10000)),
-  ]);
-  tick();
-
-  const held = performance.now() - startedAt;
-  if (held < MIN_BLACK) await wait(MIN_BLACK - held);
-
-  const playing = await app.clips.hero.play();
+  // Do NOT block the page on remote video. The wordmark and furniture can render\n  // immediately; if the hero video becomes ready later, it will be picked up by\n  // the normal frame loop.\n  if (app.clips.hero) {\n    app.clips.hero.whenReady().catch(() => {});\n    app.clips.hero.play().catch(() => {});\n  }\n  tick();\n\n  const held = performance.now() - startedAt;\n  if (held < MIN_BLACK) await wait(MIN_BLACK - held);\n\n  const playing = true;
 
   // the later scenes build while the hero plays, so scrolling into them is
   // instant; each one runs only while it is actually on screen
