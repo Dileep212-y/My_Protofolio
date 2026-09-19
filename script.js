@@ -1,130 +1,81 @@
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const themeToggle = document.getElementById("themeToggle");
+const menuToggle=document.getElementById("menuToggle");
+const navLinks=document.getElementById("navLinks");
+const themeToggle=document.getElementById("themeToggle");
+const header=document.querySelector(".site-header");
+const cursorGlow=document.querySelector(".cursor-glow");
 
-// Mobile navigation
-menuToggle?.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-
-    menuToggle.setAttribute("aria-expanded", isOpen);
-
-    menuToggle.innerHTML = isOpen
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
+menuToggle?.addEventListener("click",()=>{
+  const open=navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';
 });
 
-// Close mobile menu after clicking a link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-
-        menuToggle?.setAttribute("aria-expanded", "false");
-
-        if (menuToggle) {
-            menuToggle.innerHTML =
-                '<i class="fa-solid fa-bars"></i>';
-        }
-    });
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    navLinks.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded","false");
+    if(menuToggle) menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>';
+  });
 });
 
-// Reveal elements while scrolling
-const revealObserver = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    },
-    {
-        threshold: 0.12
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
     }
-);
-
-document.querySelectorAll(".reveal").forEach((element, index) => {
-    element.style.transitionDelay =
-        `${Math.min(index * 45, 300)}ms`;
-
-    revealObserver.observe(element);
+  });
+},{threshold:.1});
+document.querySelectorAll(".reveal").forEach((el,index)=>{
+  el.style.transitionDelay=Math.min(index*45,260)+"ms";
+  revealObserver.observe(el);
 });
 
-// Highlight active navigation section
-const sections = document.querySelectorAll("main section[id]");
-const navItems = document.querySelectorAll(".nav-links a");
+const sections=document.querySelectorAll("main section[id]");
+const navItems=document.querySelectorAll(".nav-links a");
+const activeObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    navItems.forEach(item=>item.classList.remove("active"));
+    document.querySelector(`.nav-links a[href="#${entry.target.id}"]`)?.classList.add("active");
+  });
+},{rootMargin:"-35% 0px -55% 0px"});
+sections.forEach(section=>activeObserver.observe(section));
 
-const activeObserver = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
+const savedTheme=localStorage.getItem("dileep-theme");
+if(savedTheme==="light")document.body.classList.add("light");
 
-                navItems.forEach(item => {
-                    item.classList.remove("active");
-                });
-
-                const currentLink = document.querySelector(
-                    `.nav-links a[href="#${entry.target.id}"]`
-                );
-
-                currentLink?.classList.add("active");
-            }
-        });
-    },
-    {
-        rootMargin: "-35% 0px -55% 0px"
-    }
-);
-
-sections.forEach(section => {
-    activeObserver.observe(section);
-});
-
-// Dark mode
-if (localStorage.getItem("dileep-theme") === "dark") {
-    document.body.classList.add("dark");
+function updateThemeIcon(){
+  if(!themeToggle)return;
+  themeToggle.innerHTML=document.body.classList.contains("light")
+    ? '<i class="fa-solid fa-sun"></i>'
+    : '<i class="fa-solid fa-moon"></i>';
+  themeToggle.setAttribute("aria-label",document.body.classList.contains("light")?"Switch to dark mode":"Switch to light mode");
 }
-
-function updateThemeIcon() {
-
-    if (!themeToggle) return;
-
-    themeToggle.innerHTML =
-        document.body.classList.contains("dark")
-            ? '<i class="fa-solid fa-sun"></i>'
-            : '<i class="fa-solid fa-moon"></i>';
-}
-
 updateThemeIcon();
 
-themeToggle?.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "dileep-theme",
-        document.body.classList.contains("dark")
-            ? "dark"
-            : "light"
-    );
-
-    updateThemeIcon();
+themeToggle?.addEventListener("click",()=>{
+  document.body.classList.toggle("light");
+  localStorage.setItem("dileep-theme",document.body.classList.contains("light")?"light":"dark");
+  updateThemeIcon();
 });
 
-// Subtle mouse movement on hero image
-const heroVisual = document.querySelector(".hero-visual");
+function updateHeader(){
+  header?.classList.toggle("scrolled",window.scrollY>18);
+}
+updateHeader();
+window.addEventListener("scroll",updateHeader,{passive:true});
 
-window.addEventListener("mousemove", event => {
+window.addEventListener("mousemove",event=>{
+  if(!cursorGlow||window.innerWidth<900)return;
+  cursorGlow.style.left=event.clientX+"px";
+  cursorGlow.style.top=event.clientY+"px";
+});
 
-    if (!heroVisual || window.innerWidth < 900) {
-        return;
-    }
-
-    const x =
-        (event.clientX / window.innerWidth - 0.5) * 8;
-
-    const y =
-        (event.clientY / window.innerHeight - 0.5) * 8;
-
-    heroVisual.style.transform =
-        `translate(${x * 0.45}px, ${y * 0.45}px)`;
+window.addEventListener("keydown",event=>{
+  if(event.key==="Escape"){
+    navLinks?.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded","false");
+    if(menuToggle)menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>';
+  }
 });
