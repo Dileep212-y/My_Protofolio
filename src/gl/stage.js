@@ -83,14 +83,11 @@ export class Stage {
     this.wearScale = 5.6;
   }
 
-  async loadTextures({ grunge, grain }) {
-    // Cross-origin reference textures are optional. The procedural fallbacks
-    // keep the WebGL scene fully local and prevent a CORS failure from killing
-    // the entire cinematic boot.
-    await Promise.all([
-      loadTextureOrFallback(this.gl, this.tex.grunge, grunge, 'grunge'),
-      loadTextureOrFallback(this.gl, this.tex.grain, grain, 'grain'),
-    ]);
+  async loadTextures() {
+    // Keep the first frame completely local. Third-party texture hosts must
+    // never be able to delay or break the portfolio boot.
+    upload(this.gl, this.tex.grunge, makeTextureCanvas('grunge'));
+    upload(this.gl, this.tex.grain, makeTextureCanvas('grain'));
   }
 
   setWord(word) {
