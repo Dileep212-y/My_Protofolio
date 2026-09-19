@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Boddu Dileep — AI/ML Developer portfolio">
+<meta name="description" content="Boddu Dileep — AI/ML Developer portfolio featuring machine learning, deep learning and Agentic AI projects.">
+<meta name="theme-color" content="#07100e">
 <title>Boddu Dileep | AI/ML Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,10 +14,12 @@
 </head>
 <body>
 <div class="noise"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
 
-<header>
-<nav class="nav container">
-<a class="brand" href="#home">BD</a>
+<header class="site-header">
+<nav class="nav container" aria-label="Primary navigation">
+<a class="brand" href="#home" aria-label="Dileep home"><span>DB</span></a>
+
 <div class="nav-links" id="navLinks">
 <a class="active" href="#home">Home</a>
 <a href="#about">About</a>
@@ -24,140 +27,187 @@
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
+
 <div class="nav-actions">
 <a href="https://github.com/Dileep212-y" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
 <a href="mailto:dileepboddu0685@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-<button id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
-<button id="menuToggle" class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+<button id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+<button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
 </div>
 </nav>
 </header>
 
 <main>
 <section class="hero" id="home">
-<div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-<div class="container hero-grid">
-<div class="hero-visual reveal">
-<span class="vertical-label">AI / ML<br>DEVELOPER</span>
-<div class="portrait-wrap">
-<div class="portrait-bg"></div>
-<img src="profile-photo.jpg" alt="Boddu Dileep" class="profile-photo">
-<div class="portrait-ring"></div>
-</div>
-<div class="availability"><span></span>OPEN TO<br>OPPORTUNITIES</div>
-<div class="hero-number">01</div>
+<div class="hero-grid container">
+<div class="hero-copy reveal">
+<div class="status-pill"><span></span> Open to opportunities</div>
+<p class="eyebrow">BODDU DILEEP · AI/ML DEVELOPER</p>
+<h1>Building <span>intelligent</span> products from data.</h1>
+<p class="hero-description">BCA Data Science graduate focused on machine learning, deep learning, Agentic AI and practical software applications.</p>
+
+<div class="hero-actions">
+<a class="button primary" href="#projects">Explore projects <i class="fa-solid fa-arrow-down"></i></a>
+<a class="button ghost" href="resume.pdf" download>Download resume <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 </div>
 
-<div class="hero-copy reveal">
-<p class="eyebrow"><i></i> BODDU DILEEP / PORTFOLIO</p>
-<h1>Turning data<br>into <em>intelligent</em><br>solutions.</h1>
-<p class="hero-description">AI/ML developer focused on building practical, data-driven applications with Python, machine learning and deep learning.</p>
-<div class="hero-actions">
-<a href="resume.pdf" class="button" download>Resume <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-<a href="#projects" class="text-link">Explore work <span>↗</span></a>
-</div>
-<div class="hero-meta">
+<div class="hero-stats">
+<div><strong>03+</strong><span>AI / ML projects</span></div>
 <div><strong>2025</strong><span>BCA · Data Science</span></div>
-<div><strong>02+</strong><span>AI/ML projects</span></div>
-<div><strong>01</strong><span>Curious mind</span></div>
+<div><strong>8.81</strong><span>CGPA / 10</span></div>
 </div>
+</div>
+
+<div class="hero-visual reveal">
+<div class="visual-grid"></div>
+<div class="code-card">
+<div class="window-bar"><i></i><i></i><i></i><span>eco_drive_agent.py</span></div>
+<pre><code><span class="code-key">agent</span> = <span class="code-fn">EcoDriveAI</span>(
+  mission=<span class="code-string">"reduce carbon"</span>,
+  model=<span class="code-string">"Gradient Boosting"</span>,
+  agents=<span class="code-number">6</span>
+)
+
+<span class="code-key">result</span> = agent.<span class="code-fn">analyze</span>(trip)
+<span class="code-comment"># fuel ↓  •  CO₂ ↓  •  efficiency ↑</span></code></pre>
+</div>
+<div class="floating-chip chip-one"><i class="fa-solid fa-brain"></i><span>Agentic AI</span></div>
+<div class="floating-chip chip-two"><i class="fa-solid fa-chart-line"></i><span>ML + Data</span></div>
+<div class="hero-orbit orbit-one"></div>
+<div class="hero-orbit orbit-two"></div>
+<div class="hero-badge"><span>01</span><small>BUILD<br>·<br>LEARN<br>·<br>IMPROVE</small></div>
 </div>
 </div>
 <div class="scroll-cue">SCROLL TO EXPLORE <i class="fa-solid fa-arrow-down"></i></div>
 </section>
 
-<section class="statement">
-<div class="container statement-inner"><span class="index">02 / 06</span><p>I build <strong>intelligent products</strong> where data, code and useful ideas meet.</p></div>
+<section class="ticker" aria-label="Skills">
+<div class="ticker-track">
+<span>ARTIFICIAL INTELLIGENCE</span><b>✦</b><span>MACHINE LEARNING</span><b>✦</b><span>DEEP LEARNING</span><b>✦</b><span>PYTHON</span><b>✦</b><span>AGENTIC AI</span><b>✦</b><span>DATA SCIENCE</span><b>✦</b>
+</div>
 </section>
 
-<section class="section" id="about">
+<section class="section about-section" id="about">
 <div class="container">
-<div class="section-heading reveal"><span class="index">03 / 06</span><div><p class="eyebrow">A LITTLE ABOUT ME</p><h2>Curious by nature.<br><em>Practical by design.</em></h2></div></div>
+<div class="section-top reveal"><span class="section-number">01</span><span class="eyebrow">ABOUT ME</span></div>
 <div class="about-grid">
-<div class="about-lead reveal">
-<p>I am Boddu Dileep, a BCA Data Science graduate with a strong interest in artificial intelligence, machine learning and building useful software applications.</p>
-<p>I enjoy learning new technologies, breaking down problems and turning ideas into working solutions. My approach combines analytical thinking, adaptability and continuous improvement.</p>
+<div class="about-title reveal"><h2>Curious about<br><span>how things work.</span></h2></div>
+<div class="about-copy reveal">
+<p class="large-copy">I am Boddu Dileep, a BCA Data Science graduate who enjoys turning ideas into practical technology.</p>
+<p>I work across machine learning, deep learning, data analysis and web development. I like breaking complex problems into smaller systems, experimenting with models and building interfaces that make technical solutions useful.</p>
+<div class="about-links">
+<a href="https://github.com/Dileep212-y" target="_blank" rel="noopener">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a href="mailto:dileepboddu0685@gmail.com">Let's connect <i class="fa-solid fa-arrow-right"></i></a>
 </div>
-<div class="details reveal">
-<div><span>EDUCATION</span><strong>BCA in Data Science<br>Andhra University · 2025</strong></div>
-<div><span>LANGUAGES</span><strong>English · Telugu · Hindi</strong></div>
-<div><span>STRENGTHS</span><strong>Problem solving · Adaptability · Communication</strong></div>
-<div><span>BASED IN</span><strong>Visakhapatnam, India</strong></div>
 </div>
+</div>
+<div class="info-strip reveal">
+<div><span>EDUCATION</span><strong>BCA · Data Science</strong><small>Gayatri Vidya Parishad College · 2025</small></div>
+<div><span>LOCATION</span><strong>Visakhapatnam, India</strong><small>Open to opportunities</small></div>
+<div><span>APPROACH</span><strong>Build · Test · Improve</strong><small>Practical, data-driven thinking</small></div>
 </div>
 </div>
 </section>
 
 <section class="section skills-section" id="skills">
 <div class="container">
-<div class="section-heading compact reveal"><span class="index">04 / 06</span><div><p class="eyebrow">TOOLKIT</p><h2>Things I work with.</h2></div></div>
+<div class="section-top reveal"><span class="section-number">02</span><span class="eyebrow">TOOLKIT</span></div>
+<div class="section-intro reveal"><h2>Technologies I<br><span>work with.</span></h2><p>From data preparation to deployed applications, I enjoy working across the stack when a project needs it.</p></div>
 <div class="skills-grid">
-<article class="skill reveal"><b>01</b><i class="fa-solid fa-brain"></i><h3>AI / ML</h3><span>Machine Learning · Deep Learning</span></article>
-<article class="skill reveal"><b>02</b><i class="fa-brands fa-python"></i><h3>Programming</h3><span>Python · Java · C · R</span></article>
-<article class="skill reveal"><b>03</b><i class="fa-solid fa-chart-line"></i><h3>Data</h3><span>NumPy · Pandas · MySQL</span></article>
-<article class="skill reveal"><b>04</b><i class="fa-solid fa-code"></i><h3>Web</h3><span>HTML · CSS · JavaScript</span></article>
-<article class="skill reveal"><b>05</b><i class="fa-solid fa-cloud"></i><h3>Tools</h3><span>Tableau · Excel · SPSS · Cloud</span></article>
+<article class="skill-card reveal"><span>01</span><i class="fa-brands fa-python"></i><h3>Python</h3><p>NumPy · Pandas · Scikit-learn · FastAPI</p></article>
+<article class="skill-card reveal"><span>02</span><i class="fa-solid fa-brain"></i><h3>AI / ML</h3><p>Machine Learning · Deep Learning · Agentic AI</p></article>
+<article class="skill-card reveal"><span>03</span><i class="fa-solid fa-database"></i><h3>Data</h3><p>Data analysis · MySQL · Feature engineering</p></article>
+<article class="skill-card reveal"><span>04</span><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML · CSS · JavaScript · React</p></article>
+<article class="skill-card reveal"><span>05</span><i class="fa-solid fa-screwdriver-wrench"></i><h3>Tools</h3><p>Git · GitHub · Tableau · Excel · Google ADK</p></article>
+<article class="skill-card skill-card-highlight reveal"><span>06</span><i class="fa-solid fa-rocket"></i><h3>Deployment</h3><p>GitHub Pages · Netlify · Render · REST APIs</p></article>
 </div>
 </div>
 </section>
 
-<section class="section" id="projects">
+<section class="section projects-section" id="projects">
 <div class="container">
-<div class="section-heading reveal"><span class="index">05 / 06</span><div><p class="eyebrow">SELECTED WORK</p><h2>Projects with a<br><em>purpose.</em></h2></div></div>
+<div class="section-top reveal"><span class="section-number">03</span><span class="eyebrow">SELECTED WORK</span></div>
+<div class="section-intro project-intro reveal"><h2>Projects that<br><span>solve something.</span></h2><p>Each project is an opportunity to combine models, engineering and a real user-facing workflow.</p></div>
+
 <div class="projects">
-<article class="project reveal">
-<div class="project-no">01</div>
-<div class="project-main">
-<div class="project-top"><span>2025 · MACHINE LEARNING</span><span>PYTHON</span></div>
-<h3>Air Quality Index<br>Prediction</h3>
-<p>A machine learning application that predicts AQI from PM2.5, PM10, SO2, NO2, O3 and NH3. XGBoost and Random Forest models were compared, followed by a PyQt5 prediction interface.</p>
-<div class="tags"><span>XGBoost</span><span>Random Forest</span><span>Pandas</span><span>PyQt5</span></div>
-<a class="project-link" href="https://github.com/Dileep212-y/AQI-Prediction-Application" target="_blank" rel="noopener">View on GitHub ↗</a>
-</div><div class="project-art"><b>AQI</b></div>
+<article class="project project-featured reveal">
+<div class="project-number">01</div>
+<div class="project-content">
+<div class="project-label"><span>2026 · AGENTIC AI</span><span>FULL STACK</span></div>
+<h3>EcoDrive <span>AI</span></h3>
+<p>Vehicle Carbon Footprinting and Fuel Efficiency system using a multi-agent Google ADK architecture. It combines specialized agents, ML fuel prediction, driving analysis, route optimization and carbon-impact calculations in a React dashboard.</p>
+<div class="project-stack"><span>Google ADK</span><span>Python</span><span>FastAPI</span><span>React</span><span>Gradient Boosting</span><span>ML</span></div>
+<div class="project-actions">
+<a class="project-link primary-link" href="https://github.com/Dileep212-y/vehicle-carbon-agent" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+<a class="project-link" href="https://vehicle-carbon-agent.netlify.app" target="_blank" rel="noopener">Live demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+</div>
+</div>
+<div class="project-visual eco-visual"><div class="eco-ring"></div><i class="fa-solid fa-leaf"></i><strong>CO₂</strong><small>AI-DRIVEN<br>EFFICIENCY</small></div>
 </article>
 
 <article class="project reveal">
-<div class="project-no">02</div>
-<div class="project-main">
-<div class="project-top"><span>2025 · DEEP LEARNING</span><span>COMPUTER VISION</span></div>
-<h3>Image Caption<br>Generator</h3>
-<p>A deep learning application that generates natural-language captions for input images using ResNet for visual feature extraction and a GRU-based sequence model for caption generation.</p>
-<div class="tags"><span>ResNet</span><span>GRU</span><span>Deep Learning</span><span>Python</span></div>
+<div class="project-number">02</div>
+<div class="project-content">
+<div class="project-label"><span>2025 · MACHINE LEARNING</span><span>PYTHON</span></div>
+<h3>Air Quality Index <span>Prediction</span></h3>
+<p>Machine learning application that predicts AQI from air-quality features including PM2.5, PM10, SO2, NO2, O3 and NH3, with model comparison and a prediction interface.</p>
+<div class="project-stack"><span>XGBoost</span><span>Random Forest</span><span>Pandas</span><span>PyQt5</span></div>
+<a class="project-link" href="https://github.com/Dileep212-y/AQI-Prediction-Application" target="_blank" rel="noopener">View on GitHub ↗</a>
+</div>
+<div class="project-visual simple-visual"><strong>AQI</strong><span>DATA → MODEL → INSIGHT</span></div>
+</article>
+
+<article class="project reveal">
+<div class="project-number">03</div>
+<div class="project-content">
+<div class="project-label"><span>2025 · DEEP LEARNING</span><span>COMPUTER VISION</span></div>
+<h3>Image Caption <span>Generator</span></h3>
+<p>Deep learning application that generates natural-language captions for input images using visual feature extraction and sequence modeling.</p>
+<div class="project-stack"><span>ResNet</span><span>GRU</span><span>Deep Learning</span><span>Python</span></div>
 <a class="project-link" href="https://github.com/Dileep212-y/image-caption-generator" target="_blank" rel="noopener">View on GitHub ↗</a>
-</div><div class="project-art"><b>AI</b></div>
+</div>
+<div class="project-visual simple-visual"><strong>AI</strong><span>IMAGE → FEATURES → TEXT</span></div>
 </article>
 </div>
 </div>
 </section>
 
-<section class="section timeline-section">
-<div class="container two-col">
-<div class="reveal">
-<span class="index">06 / 06</span><p class="eyebrow">EDUCATION</p><h2>Learning that<br><em>keeps moving.</em></h2>
-<div class="timeline">
-<div><span>2025</span><section><h3>BCA in Data Science</h3><p>Gayatri Vidya Parishad College<br>Andhra University · 8.81 / 10 CGPA</p></section></div>
-<div><span>2019</span><section><h3>Intermediate</h3><p>Sri Vasavi Junior College · 9.18 / 10 CGPA</p></section></div>
-<div><span>2017</span><section><h3>CBSE · 10th Standard</h3><p>Vijayam School · 10 / 10 CGPA</p></section></div>
-</div>
+<section class="section journey-section">
+<div class="container">
+<div class="section-top reveal"><span class="section-number">04</span><span class="eyebrow">EDUCATION & JOURNEY</span></div>
+<div class="journey-grid">
+<div class="timeline reveal">
+<div class="timeline-item"><span>2025</span><div><h3>BCA in Data Science</h3><p>Gayatri Vidya Parishad College · Andhra University</p><strong>8.81 / 10 CGPA</strong></div></div>
+<div class="timeline-item"><span>2019</span><div><h3>Intermediate</h3><p>Sri Vasavi Junior College</p><strong>9.18 / 10 CGPA</strong></div></div>
+<div class="timeline-item"><span>2017</span><div><h3>CBSE · 10th Standard</h3><p>Vijayam School</p><strong>10 / 10 CGPA</strong></div></div>
 </div>
 <div class="leadership reveal">
-<p class="eyebrow">LEADERSHIP</p><strong>MENTOR</strong><h3>Student Mentor</h3><p>Gayatri Vidya Parishad College, Visakhapatnam</p>
+<div class="leadership-icon"><i class="fa-solid fa-people-group"></i></div>
+<span class="eyebrow">LEADERSHIP</span>
+<h3>Student Mentor</h3>
+<p>Gayatri Vidya Parishad College, Visakhapatnam</p>
 <ul><li>Led a Clean Swachh Bharat workshop for 200 students.</li><li>Co-ordinated a yoga event for 500 participants.</li></ul>
+</div>
 </div>
 </div>
 </section>
 
 <section class="contact" id="contact">
 <div class="container contact-inner reveal">
-<p class="eyebrow">LET'S BUILD SOMETHING</p>
-<h2>Have an idea?<br><em>Let's talk.</em></h2>
-<a class="email" href="mailto:dileepboddu0685@gmail.com">dileepboddu0685@gmail.com ↗</a>
-<div class="contact-bottom"><a href="https://github.com/Dileep212-y" target="_blank" rel="noopener">GitHub ↗</a><a href="mailto:dileepboddu0685@gmail.com">Email ↗</a><a href="tel:+916302294262">+91 63022 94262</a></div>
+<span class="eyebrow">05 · LET'S CONNECT</span>
+<h2>Have an idea?<br><span>Let's build it.</span></h2>
+<p>I'm interested in AI/ML, data-driven applications and opportunities where I can keep learning while creating useful products.</p>
+<a class="email" href="mailto:dileepboddu0685@gmail.com">dileepboddu0685@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<div class="contact-bottom">
+<a href="https://github.com/Dileep212-y" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+<a href="mailto:dileepboddu0685@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+<a href="tel:+916302294262"><i class="fa-solid fa-phone"></i> +91 63022 94262</a>
+</div>
 </div>
 </section>
 </main>
 
-<footer><div class="container"><span>© 2026 Boddu Dileep</span><span>Designed & built with curiosity.</span></div></footer>
+<footer><div class="container"><span>© 2026 Boddu Dileep</span><span>Designed & built with curiosity.</span><a href="#home">Back to top ↑</a></div></footer>
 <script src="script.js"></script>
 </body>
 </html>
