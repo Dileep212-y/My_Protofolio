@@ -201,3 +201,7 @@ main{display:block;overflow:visible}
  .system-card--large{min-height:510px}.system-card{min-height:290px}.agent-visual{inset:70px 12px 38px}.agent-core{width:105px;height:105px}.agent-node{font-size:6px;padding:8px 9px}.agent-node span{font-size:5px}
  .signal-readout{grid-template-columns:auto auto 1fr;gap:5px}.signal-readout span:nth-of-type(n+2),.signal-readout b:nth-of-type(n+2){display:none}
 }
+
+.scroll-progress{position:fixed;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,#8d58ff,#6fffe9);transform:scaleX(0);transform-origin:left center;z-index:1000;box-shadow:0 0 14px rgba(169,112,255,.5);pointer-events:none}
+.project-media.is-hovering,.system-card.is-hovering{border-color:rgba(169,112,255,.34)}
+@media(max-width:700px){.scroll-progress{height:1px}}
