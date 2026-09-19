@@ -12,32 +12,32 @@
 export const YEARS = [
   {
     year: 2021,
-    key: 'Beginning',
+    key: 'Foundation',
     lines: ['New city', 'New chapter', 'Bigger dreams'],
   },
   {
     year: 2022,
-    key: 'Exploration',
+    key: 'Data Science',
     lines: ['Learned design', 'Found direction'],
   },
   {
     year: 2023,
-    key: 'Practice',
+    key: 'Machine Learning',
     lines: ['Built skills', 'Made projects', 'Kept going'],
   },
   {
     year: 2024,
-    key: 'Growth',
+    key: 'AI Projects',
     lines: ['Real projects', 'Real people', 'Real learning'],
   },
   {
     year: 2025,
-    key: 'Opportunities',
+    key: 'Agentic AI',
     lines: ['Collaborated', 'Solved problems', 'Stepped up'],
   },
   {
     year: 2026,
-    key: 'Next chapter',
+    key: 'MCA & Beyond',
     lines: ['Bigger goals', 'More impact', 'Still designing'],
   },
 ];
