@@ -10,13 +10,14 @@
 <link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/oswald-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://raw.githubusercontent.com/gireeshkumarreddy/cinematic-portofilo/main/public/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="src/styles/app.css">
-<link rel="stylesheet" href="src/styles/universe.css">
-<link rel="stylesheet" href="src/styles/chrono.css">
-<link rel="stylesheet" href="src/styles/projects.css">
-<link rel="stylesheet" href="src/styles/finale.css">
+<link rel="stylesheet" href="./src/styles/app.css">
+<link rel="stylesheet" href="./src/styles/universe.css">
+<link rel="stylesheet" href="./src/styles/chrono.css">
+<link rel="stylesheet" href="./src/styles/projects.css">
+<link rel="stylesheet" href="./src/styles/finale.css">
 </head>
 <body>
+<div id="emergency" style="position:fixed;inset:0;z-index:9999;background:#050505;color:#f2f0ea;display:grid;place-items:center;font-family:Arial,sans-serif;text-align:center"><div><div style="font-size:clamp(64px,12vw,180px);font-weight:800;letter-spacing:-.06em">DILEEP</div><div style="margin-top:18px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.65">AI / ML · Data Science · Agentic AI</div><div style="margin-top:28px;font-size:11px;letter-spacing:.18em;opacity:.4">INITIALIZING CINEMATIC EXPERIENCE</div></div></div>
 
 <!-- the real heading, for search engines and screen readers; the visible
      wordmark is drawn on the canvas so video can be clipped inside its letters -->
@@ -240,6 +241,7 @@
   </div>
 </footer>
 
-<script type="module" src="src/main.js"></script>
+<script>setTimeout(()=>document.getElementById("emergency")?.remove(),12000);</script>
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>
