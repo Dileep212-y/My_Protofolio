@@ -46,3 +46,12 @@ body{overscroll-behavior-y:none}
 .gallery-item span{z-index:5}
 
 .project-copy,.project-visual,.gallery-item,.section-head{will-change:auto}
+
+/* Direct screenshot rendering - no background sprites */
+.project-visual{position:relative;overflow:hidden;min-height:520px}
+.project-visual .real-project-image{display:block!important;position:absolute!important;inset:20px!important;width:calc(100% - 40px)!important;height:calc(100% - 40px)!important;object-fit:contain!important;background:#08090d!important;border-radius:16px!important;padding:0!important;opacity:1!important;visibility:visible!important;filter:none!important;transform:none!important}
+.gallery-item{position:relative;overflow:hidden}
+.gallery-item .gallery-real-image{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;background:#08090d!important;padding:10px!important;opacity:1!important;visibility:visible!important}
+.gallery-item span{position:absolute;z-index:8}
+.portrait-stage{clip-path:polygon(8% 0,100% 0,100% 84%,88% 100%,0 100%,0 14%);background:linear-gradient(145deg,rgba(124,58,237,.20),rgba(12,10,18,.04));padding:2%;overflow:hidden}
+.portrait-stage img{width:100%!important;height:100%!important;max-height:none!important;object-fit:contain!important;object-position:center!important;mix-blend-mode:normal!important;filter:grayscale(1) contrast(1.02)!important}
