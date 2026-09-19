@@ -47,6 +47,7 @@ const app = {
 // --------------------------------------------------------------------------
 
 async function main() {
+  const emergency = document.getElementById('emergency');
   const canvas = document.getElementById('stage');
   app.stage = new Stage(canvas);
   app.furniture = new Furniture(document);
@@ -55,7 +56,10 @@ async function main() {
 
   let manifest;
   try {
-    manifest = await fetch(`${MEDIA}manifest.json`).then((r) => r.json());
+    manifest = await Promise.race([
+      fetch(`${MEDIA}manifest.json`).then((r) => r.json()),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('media manifest timeout')), 7000)),
+    ]);
   } catch {
     return degrade('media manifest missing');
   }
@@ -91,7 +95,10 @@ async function main() {
   window.addEventListener('resize', debounce(layout, 140));
   window.addEventListener('orientationchange', () => setTimeout(layout, 220));
 
-  await app.clips.hero.whenReady();
+  await Promise.race([
+    app.clips.hero.whenReady(),
+    new Promise((_, reject) => setTimeout(() => reject(new Error('hero media timeout')), 10000)),
+  ]);
   tick();
 
   const held = performance.now() - startedAt;
@@ -115,6 +122,7 @@ async function main() {
 }
 
 function begin() {
+  document.getElementById('emergency')?.remove();
   boot.classList.add('is-done');
   root.classList.remove('is-booting');
   app.t0 = performance.now();
@@ -233,7 +241,8 @@ function frame(now) {
 // --------------------------------------------------------------------------
 
 function degrade(reason) {
-  console.warn('[gireesh] falling back:', reason);
+  console.warn('[dileep] falling back:', reason);
+  document.getElementById('emergency')?.remove();
   root.classList.remove('is-booting');
   root.classList.add('is-fallback');
   boot.classList.add('is-done');
