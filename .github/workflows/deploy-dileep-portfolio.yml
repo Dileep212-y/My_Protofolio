@@ -32,11 +32,9 @@ jobs:
           from pathlib import Path
 
           folders = ("textures", "sounds", "fonts", "images", "cursors")
-          files = []
-          for ext in ("*.js", "*.css", "*.html"):
-              files.extend(Path(".").rglob(ext))
+          asset_files = list(Path("assets").glob("*.js")) + list(Path("assets").glob("*.css"))
 
-          for path in files:
+          for path in asset_files:
               try:
                   text = path.read_text(encoding="utf-8")
               except (UnicodeDecodeError, OSError):
@@ -45,26 +43,22 @@ jobs:
               original = text
 
               for folder in folders:
-                  replacements = [
-                      (f'"/{folder}/', f'"./{folder}/'),
-                      (f"'/{folder}/", f"'./{folder}/"),
-                      (f'url(/{folder}/', f'url(./{folder}/'),
-                      (f'url("/{folder}/', f'url("./{folder}/'),
-                      (f"url('/{folder}/", f"url('./{folder}/"),
-                  ]
-                  for old, new in replacements:
-                      text = text.replace(old, new)
+                  text = text.replace(f'"/{folder}/', f'"../{folder}/')
+                  text = text.replace(f"'/{folder}/", f"'../{folder}/")
+                  text = text.replace(f'url(/{folder}/', f'url(../{folder}/')
+                  text = text.replace(f'url("/{folder}/', f'url("../{folder}/')
+                  text = text.replace(f"url('/{folder}/", f"url('../{folder}/")
 
               for name in ("resume.pdf", "favicon.svg"):
-                  text = text.replace(f'" /{name}', f'"./{name}')
-                  text = text.replace(f'"/{name}', f'"./{name}')
-                  text = text.replace(f"'/{name}", f"'./{name}")
-                  text = text.replace(f'url(/{name}', f'url(./{name}')
+                  text = text.replace(f'"/{name}', f'"../{name}')
+                  text = text.replace(f"'/{name}", f"'../{name}")
+                  text = text.replace(f'url(/{name}', f'url(../{name}')
+                  text = text.replace(f'url("/{name}', f'url("../{name}')
+                  text = text.replace(f"url('/{name}", f"url('../{name}")
 
               if text != original:
                   path.write_text(text, encoding="utf-8")
-                  print(f"Fixed paths: {path}")
-
+                  print(f"Fixed asset paths: {path}")
           PY
 
       - name: Bust browser cache for all JS and CSS assets
@@ -76,20 +70,17 @@ jobs:
 
           root = Path(".")
           token = os.environ["GITHUB_SHA"][:12]
-          text_files = []
-          for ext in ("*.js", "*.css", "*.html"):
-              text_files.extend(root.rglob(ext))
-
           asset_dir = root / "assets"
-          rename_map = {}
 
+          rename_map = {}
           for path in sorted(asset_dir.iterdir()):
               if path.is_file() and path.suffix in {".js", ".css"}:
-                  new_name = f"{path.stem}.pages-{token}{path.suffix}"
-                  rename_map[path.name] = new_name
+                  rename_map[path.name] = f"{path.stem}.pages-{token}{path.suffix}"
 
           if not rename_map:
               raise SystemExit("No JS/CSS assets found to cache-bust.")
+
+          text_files = list(root.rglob("*.js")) + list(root.rglob("*.css")) + [root / "index.html"]
 
           for path in text_files:
               try:
@@ -103,14 +94,9 @@ jobs:
 
               if text != original:
                   path.write_text(text, encoding="utf-8")
-                  print(f"Updated references: {path}")
 
           for old, new in rename_map.items():
-              old_path = asset_dir / old
-              new_path = asset_dir / new
-              old_path.rename(new_path)
-              print(f"Renamed: {old} -> {new}")
-
+              (asset_dir / old).rename(asset_dir / new)
           PY
 
       - name: Verify required files
