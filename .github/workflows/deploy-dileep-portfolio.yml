@@ -25,6 +25,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Fix GitHub Pages project-site asset paths
+        shell: bash
+        run: |
+          find . -type f \( -name '*.js' -o -name '*.css' -o -name '*.html' \) -print0 | xargs -0 perl -pi -e 's#(["\x27])/(textures|sounds|fonts|images|cursors)/#$1./$2/#g; s#(["\x27])/(resume\.pdf|favicon\.svg)#$1./$2#g; s#url\(/(textures|sounds|fonts|images|cursors)/#url(./$1/#g; s#url\(/(resume\.pdf|favicon\.svg)#url(./$1#g'
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
