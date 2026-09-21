@@ -2,8 +2,7 @@ name: Deploy Dileep Portfolio
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,114 +15,59 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout main
+      - name: Checkout clean portfolio
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Fix GitHub Pages project-site asset paths
+      - name: Fix project-site asset URLs
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
-          folders = ("textures", "sounds", "fonts", "images", "cursors")
-          asset_files = list(Path("assets").glob("*.js")) + list(Path("assets").glob("*.css"))
-
-          for path in asset_files:
+          root = Path('.')
+          prefixes = ('textures/', 'sounds/', 'fonts/', 'images/', 'cursors/')
+          files = list(root.rglob('*.js')) + list(root.rglob('*.css')) + list(root.rglob('*.html'))
+          for path in files:
+              if '.git' in path.parts:
+                  continue
               try:
-                  text = path.read_text(encoding="utf-8")
+                  text = path.read_text(encoding='utf-8')
               except (UnicodeDecodeError, OSError):
                   continue
-
               original = text
-
-              for folder in folders:
-                  text = text.replace(f'"/{folder}/', f'"../{folder}/')
-                  text = text.replace(f"'/{folder}/", f"'../{folder}/")
-                  text = text.replace(f'url(/{folder}/', f'url(../{folder}/')
-                  text = text.replace(f'url("/{folder}/', f'url("../{folder}/')
-                  text = text.replace(f"url('/{folder}/", f"url('../{folder}/")
-
-              for name in ("resume.pdf", "favicon.svg"):
-                  text = text.replace(f'"/{name}', f'"../{name}')
-                  text = text.replace(f"'/{name}", f"'../{name}")
-                  text = text.replace(f'url(/{name}', f'url(../{name}')
-                  text = text.replace(f'url("/{name}', f'url("../{name}')
-                  text = text.replace(f"url('/{name}", f"url('../{name}")
-
+              for prefix in prefixes:
+                  text = text.replace(f'/{prefix}', f'/My_Protofolio/{prefix}')
+              for name in ('resume.pdf', 'favicon.svg', 'favico.png'):
+                  text = text.replace(f'/{name}', f'/My_Protofolio/{name}')
               if text != original:
-                  path.write_text(text, encoding="utf-8")
-                  print(f"Fixed asset paths: {path}")
+                  path.write_text(text, encoding='utf-8')
           PY
 
-      - name: Bust browser cache for all JS and CSS assets
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import os
-
-          root = Path(".")
-          token = os.environ["GITHUB_SHA"][:12]
-          asset_dir = root / "assets"
-
-          rename_map = {}
-          for path in sorted(asset_dir.iterdir()):
-              if path.is_file() and path.suffix in {".js", ".css"}:
-                  rename_map[path.name] = f"{path.stem}.pages-{token}{path.suffix}"
-
-          if not rename_map:
-              raise SystemExit("No JS/CSS assets found to cache-bust.")
-
-          text_files = list(root.rglob("*.js")) + list(root.rglob("*.css")) + [root / "index.html"]
-
-          for path in text_files:
-              try:
-                  text = path.read_text(encoding="utf-8")
-              except (UnicodeDecodeError, OSError):
-                  continue
-
-              original = text
-              for old, new in rename_map.items():
-                  text = text.replace(old, new)
-
-              if text != original:
-                  path.write_text(text, encoding="utf-8")
-
-          for old, new in rename_map.items():
-              (asset_dir / old).rename(asset_dir / new)
-          PY
-
-      - name: Verify required files
+      - name: Verify clean portfolio
         shell: bash
         run: |
           test -f index.html
-          test -d assets
-          test -d textures
-          test -d sounds
-          test -d fonts
+          test -f assets/index-C4cy74I0.js
+          test -f assets/index-CnIF8Z0a.css
           test -f textures/entrance/floor_paper.webp
           test -f fonts/CabinSketch-Bold.ttf
           test -f fonts/CabinSketch-Regular.ttf
-          echo "GitHub Pages files verified."
+          test -f sounds/papersound.mp3
+          echo 'Clean portfolio verified.'
 
-      - name: Upload site
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload clean portfolio
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
