@@ -45,22 +45,71 @@ jobs:
               original = text
 
               for folder in folders:
-                  text = text.replace(f'"/{folder}/', f'"./{folder}/')
-                  text = text.replace(f"'/{folder}/", f"'./{folder}/")
-                  text = text.replace(f'url(/{folder}/', f'url(./{folder}/')
-                  text = text.replace(f'url("/{folder}/', f'url("./{folder}/')
-                  text = text.replace(f"url('/{folder}/", f"url('./{folder}/")
+                  replacements = [
+                      (f'"/{folder}/', f'"./{folder}/'),
+                      (f"'/{folder}/", f"'./{folder}/"),
+                      (f'url(/{folder}/', f'url(./{folder}/'),
+                      (f'url("/{folder}/', f'url("./{folder}/'),
+                      (f"url('/{folder}/", f"url('./{folder}/"),
+                  ]
+                  for old, new in replacements:
+                      text = text.replace(old, new)
 
-              text = text.replace('"/resume.pdf', '"./resume.pdf')
-              text = text.replace("'/resume.pdf", "'./resume.pdf")
-              text = text.replace('url(/resume.pdf', 'url(./resume.pdf')
-              text = text.replace('"/favicon.svg', '"./favicon.svg')
-              text = text.replace("'/favicon.svg", "'./favicon.svg")
-              text = text.replace('url(/favicon.svg', 'url(./favicon.svg')
+              for name in ("resume.pdf", "favicon.svg"):
+                  text = text.replace(f'" /{name}', f'"./{name}')
+                  text = text.replace(f'"/{name}', f'"./{name}')
+                  text = text.replace(f"'/{name}", f"'./{name}")
+                  text = text.replace(f'url(/{name}', f'url(./{name}')
 
               if text != original:
                   path.write_text(text, encoding="utf-8")
-                  print(f"Fixed: {path}")
+                  print(f"Fixed paths: {path}")
+
+          PY
+
+      - name: Bust browser cache for all JS and CSS assets
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+
+          root = Path(".")
+          token = os.environ["GITHUB_SHA"][:12]
+          text_files = []
+          for ext in ("*.js", "*.css", "*.html"):
+              text_files.extend(root.rglob(ext))
+
+          asset_dir = root / "assets"
+          rename_map = {}
+
+          for path in sorted(asset_dir.iterdir()):
+              if path.is_file() and path.suffix in {".js", ".css"}:
+                  new_name = f"{path.stem}.pages-{token}{path.suffix}"
+                  rename_map[path.name] = new_name
+
+          if not rename_map:
+              raise SystemExit("No JS/CSS assets found to cache-bust.")
+
+          for path in text_files:
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+
+              original = text
+              for old, new in rename_map.items():
+                  text = text.replace(old, new)
+
+              if text != original:
+                  path.write_text(text, encoding="utf-8")
+                  print(f"Updated references: {path}")
+
+          for old, new in rename_map.items():
+              old_path = asset_dir / old
+              new_path = asset_dir / new
+              old_path.rename(new_path)
+              print(f"Renamed: {old} -> {new}")
 
           PY
 
@@ -68,11 +117,13 @@ jobs:
         shell: bash
         run: |
           test -f index.html
-          test -f assets/index-C4cy74I0.js
-          test -f assets/index-CnIF8Z0a.css
+          test -d assets
           test -d textures
           test -d sounds
           test -d fonts
+          test -f textures/entrance/floor_paper.webp
+          test -f fonts/CabinSketch-Bold.ttf
+          test -f fonts/CabinSketch-Regular.ttf
           echo "GitHub Pages files verified."
 
       - name: Upload site
