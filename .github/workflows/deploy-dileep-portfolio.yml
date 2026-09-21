@@ -28,7 +28,52 @@ jobs:
       - name: Fix GitHub Pages project-site asset paths
         shell: bash
         run: |
-          find . -type f \( -name '*.js' -o -name '*.css' -o -name '*.html' \) -print0 | xargs -0 perl -pi -e 's#(["\x27])/(textures|sounds|fonts|images|cursors)/#$1./$2/#g; s#(["\x27])/(resume\.pdf|favicon\.svg)#$1./$2#g; s#url\(/(textures|sounds|fonts|images|cursors)/#url(./$1/#g; s#url\(/(resume\.pdf|favicon\.svg)#url(./$1#g'
+          python3 - <<'PY'
+          from pathlib import Path
+
+          folders = ("textures", "sounds", "fonts", "images", "cursors")
+          files = []
+          for ext in ("*.js", "*.css", "*.html"):
+              files.extend(Path(".").rglob(ext))
+
+          for path in files:
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+
+              original = text
+
+              for folder in folders:
+                  text = text.replace(f'"/{folder}/', f'"./{folder}/')
+                  text = text.replace(f"'/{folder}/", f"'./{folder}/")
+                  text = text.replace(f'url(/{folder}/', f'url(./{folder}/')
+                  text = text.replace(f'url("/{folder}/', f'url("./{folder}/')
+                  text = text.replace(f"url('/{folder}/", f"url('./{folder}/")
+
+              text = text.replace('"/resume.pdf', '"./resume.pdf')
+              text = text.replace("'/resume.pdf", "'./resume.pdf")
+              text = text.replace('url(/resume.pdf', 'url(./resume.pdf')
+              text = text.replace('"/favicon.svg', '"./favicon.svg')
+              text = text.replace("'/favicon.svg", "'./favicon.svg")
+              text = text.replace('url(/favicon.svg', 'url(./favicon.svg')
+
+              if text != original:
+                  path.write_text(text, encoding="utf-8")
+                  print(f"Fixed: {path}")
+
+          PY
+
+      - name: Verify required files
+        shell: bash
+        run: |
+          test -f index.html
+          test -f assets/index-C4cy74I0.js
+          test -f assets/index-CnIF8Z0a.css
+          test -d textures
+          test -d sounds
+          test -d fonts
+          echo "GitHub Pages files verified."
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
